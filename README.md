@@ -15,11 +15,11 @@
 
 ## Contributing
 ### Team 6 - Narcissus
-*Sunny Babal<br>
-*Grant Scriver<br>
-*Regan Murray<br>
-*James Jorissen<br>
-*Caroline Pukenis<br>
+*Sunny Babal*<br>
+*Grant Scriver*<br>
+*Regan Murray*<br>
+*James Jorissen*<br>
+*Caroline Pukenis*<br>
 
 ## Tests
 
