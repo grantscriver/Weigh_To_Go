@@ -5,7 +5,7 @@
 [Project 2 Presentation](https://docs.google.com/presentation/d/1rx20oaBUVH6SNjZqYiwGvxqsA7jLg7UGA5UHt9OApY8/edit?usp=sharing)
 
 ## Demonstration
-![Readme Image](https://github.com/reganmurray22/Project2/blob/master/public/images/introImage.jpg)
+![Readme Image](https://github.com/reganmurray22/Project2/blob/main/public/images/introImage.jpg)
 
 ## Description
 
