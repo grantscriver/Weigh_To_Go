@@ -1,23 +1,22 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Weigh to Go!</h2>
+      <div class="col-4">
+        <h1>Weigh to Go!</h1>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Your Weight</label>
+            <label for="example-text">What have you eaten today?</label>
             <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
-              placeholder="Enter Example Text">
+              placeholder="Enter Food Type Here:">
           </div>
           <div class="form-group">
-            <label for="example-description">What have you eaten today?</label>
+            <label for="example-description">How much did you eat today?</label>
             <textarea class="form-control" id="example-description" aria-describedby="example-description"
-              placeholder="Enter Example Description"></textarea>
+              placeholder="Enter Size and Number of Portions Here:"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Foods Eaten:</h3>
+        <h3>Caloric Intake:</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
