@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "theman",
-    "password": "password",
-    "database": "exampledb",
+    "username": "root",
+    "password": "",
+    "database": "appDB",
     "host": "localhost",
     "dialect": "mysql"
   },
