@@ -1,7 +1,12 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Calorie_user = sequelize.define("Calorie_user", {
-    id: "Regan"
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true, 
+        autoIncrement: true
+        },
     username: {
         type: DataTypes.STRING,
         allowNull: false
