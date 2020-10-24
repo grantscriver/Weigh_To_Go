@@ -12,7 +12,7 @@ app.post("/users", async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.password, salt)
         //console.log(salt)
         //console.log(hashedPassword)
-        const user = {name: req.body.username, password: req.body.hashedPassword}
+        const user = { name: req.body.username, password: req.body.hashedPassword }
         users.push(user)
         res.status(201).send()
     } catch {
@@ -21,17 +21,17 @@ app.post("/users", async (req, res) => {
 })
 
 app.post("/users/login", async (req, res) => {
-    const user = users.find(user =>user.username = req.body.username)    
-        if (user = null) {
-            return res.status(400).send("Cannot find user...")
+    const user = users.find(user => user.username = req.body.username)
+    if (user = null) {
+        return res.status(400).send("Cannot find user...")
+    }
+    try {
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            res.send("Success!")//run welcome page
+        } else {
+            res.send("Password is Incorrect")
         }
-        try {            
-            if (await bcrypt.compare(req.body.password, user.password)) {
-               res.send("Success!")//run welcome page
-            } else {
-               res.send("Password is Incorrect")
-            }
-        } catch {
+    } catch {
         res.status(500).send()
     }
 })
