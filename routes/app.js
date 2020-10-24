@@ -1,15 +1,13 @@
 const express = require("express");
+const path = require("path");
 const router = express.Router();
-const Sequelize = require("sequelize");
-
-//import model folder
 const db = require('../models');
 
 //Test routes
 //router.get("/", (req, res) => res.send("Success!"));
 
-//within model folder get info from each separate table
-router.get("/", (req, res) =>    
+
+router.get("/", (req, res) =>
     db.Calorie_user.findAll()
     .then(Calorie_user =>{
         console.log(db.Calorie_user);
@@ -23,6 +21,12 @@ router.get("/", (req, res) =>
     })
     .catch(err => console.log(err)));
 
+router.get("/", (req, res) =>
+    db.food.findAll()
+    .then(food =>{
+        console.log(db.food);
+    })
+    .catch(err => console.log(err)));
 
 
 //add info

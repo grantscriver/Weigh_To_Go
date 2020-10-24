@@ -21,9 +21,6 @@
 *James Jorissen*<br>
 *Caroline Pukenis*<br>
 
-
-Sunnys change
-
 ## Tests
 
 ## Licence
