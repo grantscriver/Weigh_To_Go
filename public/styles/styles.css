@@ -14,6 +14,12 @@ h1 {
   font-family: "Alfa Slab One", cursive;
 }
 
-#foodDiaryColTwo {
-  background-color: orange;
+#myChart {
+  height: 500px;
+  width: 100%;
+  min-height: 150px;
+}
+
+.zc-ref {
+  display: none;
 }

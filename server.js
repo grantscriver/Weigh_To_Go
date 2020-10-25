@@ -10,23 +10,28 @@ app.set("view-engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 //Setting static folder
+app.use(express.json());
 app.use(express.static("public"));
 
 //connecting DB
 const db = require("./models");
 
 //landing page and navbar route
-app.get("/", (req, res) => res.render("login.handlebars", { layout: "landingPg" }));
+app.get("/", (req, res) =>
+  res.render("login.handlebars", { layout: "landingPg" })
+);
 app.get("/login", (req, res) => res.render("login.handlebars"));
 app.get("/register", (req, res) => res.render("register.handlebars"));
-app.get("/Calorie_counter", (req, res) => res.render("Calorie_counter.handlebars"));
+app.get("/Calorie_counter", (req, res) =>
+  res.render("Calorie_counter.handlebars")
+);
 app.get("/graph", (req, res) => res.render("Graph.handlebars"));
 app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
 
 //tell the app to use the file paths in the routes folder
 app.use("/app", require("./routes/app"));
+app.use("/users", require("./routes/htmlRoutes.js"));
 app.use("/users", require("./routes/users"));
 
 const PORT = process.env.PORT || 3000;
@@ -36,5 +41,3 @@ db.sequelize.sync({ force: true }).then(function () {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-
