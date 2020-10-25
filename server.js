@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 //Setting static folder
-app.use(express.static("/public"));
+app.use(express.static("public"));
 
 //connecting DB
 const db = require("./models");
