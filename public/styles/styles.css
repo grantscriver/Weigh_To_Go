@@ -2,18 +2,6 @@
   line-height: 2.5;
 }
 
-#weighToGo {
-  background-color: #152659;
-}
-
-#weighToGo h1 {
-  color: #f2efdc;
-}
-
-h1 {
-  font-family: "Alfa Slab One", cursive;
-}
-
 #myChart {
   height: 500px;
   width: 100%;
@@ -22,4 +10,44 @@ h1 {
 
 .zc-ref {
   display: none;
+}
+
+#foodDiaryColTwo {
+  font-family: "Alfa Slab One";
+  background-color: #152659;
+  color: #f2efdc;
+}
+
+#navbarRow {
+  font-family: "Alfa Slab One";
+  background-color: #30bf97;
+  color: #f2efdc;
+}
+
+#foodDiaryColOne {
+  background-color: #f29441;
+  color: #f2efdc;
+  font-family: "Alfa Slab One";
+}
+
+#dashboardNav {
+  font-family: "Alfa Slab One";
+  background-color: #30bf97;
+  color: #f2efdc;
+}
+
+#graphNav {
+  font-family: "Alfa Slab One";
+  background-color: #30bf97;
+  color: #f2efdc;
+}
+
+#graphRow {
+  font-family: "Alfa Slab One";
+  color: #f2efdc;
+}
+
+.login-page {
+  max-width: 500px;
+  margin: auto;
 }
