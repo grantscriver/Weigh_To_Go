@@ -42,12 +42,28 @@
   color: #f2efdc;
 }
 
-#graphRow {
-  font-family: "Alfa Slab One";
-  color: #f2efdc;
+#row-1 {
+  max-height: 50%;
+  background-color: #152659;
 }
 
-.login-page {
-  max-width: 500px;
-  margin: auto;
+#row-3 {
+  max-height: 50%;
+  background-color: #152659;
+}
+
+#add {
+  background-color: #f29441;
+}
+
+#col3Login {
+  background-color: #152659;
+}
+
+#col1Login {
+  background-color: #152659;
+}
+
+.container-fluid {
+  max-width: 100%;
 }

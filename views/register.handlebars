@@ -1,45 +1,60 @@
-<section id="add" class="container">
-  <div class="form-wrap">
-    <h1>Enter your info:</h1>
-    <p>This informtion will be used to calculate how to help you accomplish your weight loss goals!</p>
-    <form action="/users/register" method="POST">
-      <div>
-        <label for="username">Create Your Username</label>
-        <input type="text" name="username" id="username" class="input-box" placeholder="Username" value={{username}}>
+<section id="add" class="container-fluid">
+  <div class="row" id="row-1"></div>
+  <div class="row" id="row-2">
+    <div class="col-md-3" id="col1Login"></div>
+    <div class="col-md-6" id="col2Login">
+      <div class="form-wrap">
+        <h1>Enter your info:</h1>
+        <p>This informtion will be used to calculate how to help you accomplish your weight loss goals!</p>
+        <form action="/users/register" method="POST">
+          <div>
+            <label for="username">Create Your Username</label>
+            <input type="text" name="username" id="username" class="input-box" placeholder="Username"
+              value={{username}}>
+          </div>
+          <br></br>
+          <div class="input-group">
+            <label for="age">Your Age</label>
+            <input type="number" name="age" id="age" class="input-box" placeholder="Your age HERE" value={{age}}>
+          </div>
+          <br></br>
+          <div class="input-group">
+            <label for="gender">Your Gender</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+          </div>
+          <br></br>
+          <div class="input-group">
+            <label for="height_in_inches">Your Height in Inches</label>
+            <input type="number" name="height_in_inches" id="height_in_inches" class="input-box"
+              placeholder="For example: 5'6 = 60" value={{height_in_inches}}>
+          </div>
+          <br></br>
+          <div class="input-group">
+            <label for="current_weight">Your Current Weight in Pounds</label>
+            <input type="number" name="current_weight" id="current_weight" class="input-box"
+              placeholder="For example: 150" value={{current_weight}}>
+          </div>
+          <br></br>
+          <div class="input-group">
+            <label for="goal_weight">Your Goal Weight in Pounds</label>
+            <input type="number" name="goal_weight" id="goal_weight" class="input-box" placeholder="For example: 120"
+              value={{goal_weight}}>
+          </div>
+          <br></br>
+          <div>
+            <label for="username">Create Your Password</label>
+            <input type="string" name="password" id="password" class="input-box" placeholder="Enter Your Password"
+              value={{password}}>
+          </div>
+          <br></br>
+          <input type="submit" value="Add Info" class="btn btn-reverse">
+        </form>
       </div>
-      <div class="input-group">
-        <label for="age">Your Age</label>
-        <input type="number" name="age" id="age" class="input-box" placeholder="Your age HERE" value={{age}}>
-      </div>
-      <div class="input-group">
-        <label for="gender">Your Gender</label>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
-      </div>
-      <div class="input-group">
-        <label for="height_in_inches">Your Height in Inches</label>
-        <input type="number" name="height_in_inches" id="height_in_inches" class="input-box"
-          placeholder="For example: 5'6 = 60" value={{height_in_inches}}>
-      </div>
-      <div class="input-group">
-        <label for="current_weight">Your Current Weight in Pounds</label>
-        <input type="number" name="current_weight" id="current_weight" class="input-box" placeholder="For example: 150"
-          value={{current_weight}}>
-      </div>
-      <div class="input-group">
-        <label for="goal_weight">Your Goal Weight in Pounds</label>
-        <input type="number" name="goal_weight" id="goal_weight" class="input-box" placeholder="For example: 120"
-          value={{goal_weight}}>
-      </div>
-      <div>
-        <label for="username">Create Your Password</label>
-        <input type="string" name="password" id="password" class="input-box" placeholder="Enter Your Password"
-          value={{password}}>
-      </div>
-
-      <input type="submit" value="Add Info" class="btn btn-reverse">
-    </form>
+    </div>
+    <div class="col-md-3" id="col3Login"></div>
   </div>
+  <div class="row" id="row-3"></div>
 </section>
