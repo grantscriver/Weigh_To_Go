@@ -13,7 +13,6 @@
           <li class="nav-item active">
             <a class="nav-link disabled" href="./Calorie_counter">Food Diary<span class="sr-only">(current)</span></a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="./dashboard">Dashboard</a>
           </li>
@@ -25,11 +24,12 @@
     </nav>
   </div>
   <div class="row">
-    <div class="col-md-4" id="foodDiaryColOne">
+    <div class="col" id="foodDiaryColOne">
       <div class="form-wrap">
         <h1> Hello 'Insert User Name': </h1>
         <br></br>
         <h2> Today's Date is: </h2>
+        <p class="currentDate">Date</p>
         <br></br>
         <h2> Your Calorie Goal for Today is: </h2>
         <br></br>
@@ -61,27 +61,10 @@
         </form>
       </div>
     </div>
-    <div class="col-md-8" id="foodDiaryColTwo">
-      <table style="text-align:center;" width="650" height="650" border="10">
-        <tr>
-          <td></td>
-          <th>Foods Eaten</th>
-          <th>Servings</th>
-          <th>Total</th>
-        </tr>
-        <tr>
-          <th></th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th></th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
+    <div class="col" id="foodDiaryColTwo"></div>
   </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+</body>
