@@ -26,8 +26,8 @@ app.get("/graph", (req, res) => res.render("Graph.handlebars"));
 app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
 
 //tell the app to use the file paths in the routes folder
-app.use("/app", require("./routes/app"));
-app.use("/users", require("./routes/users"));
+//this route creates and posts the new users
+app.use("/users", require("./routes/apiRoutes.js"));
 
 const PORT = process.env.PORT || 3000;
 

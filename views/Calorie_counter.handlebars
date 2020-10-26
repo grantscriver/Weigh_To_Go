@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-md-4" id="foodDiaryColOne">
       <div class="form-wrap">
-        <h1> Hello 'Insert User Name': </h1>
+        <h1> Hello : </h1>
         <br></br>
         <h2> Today's Date is: </h2>
         <p class="currentDate">Date</p>
@@ -35,29 +35,34 @@
         <br></br>
         </form>
       </div>
-
       <div class="form-wrap">
-        <h1>Enter Your Foods:</h1>
         <form action="/users/register" method="POST">
-          <div>
-            <label for="foodItems">Food Items</label>
-            <input type="text" name="foodItems" id="foodItems" class="input-box" placeholder="foodItems"
-              value={{foodItems}}>
-          </div>
-          <br></br>
-          <div class="input-group">
-            <label for="age">Serving Size</label>
-            <input type="text" name="servingSize" id="servingSize" class="input-box"
-              placeholder="Enter Serving Size Here" value={{servingSize}}>
+          <div id = "my_container" class = "fatsecret_container">
+            <img url="../public/images/nutritionLabel.png" alt="mock up fatsecret nutrition label" style="width:150px">
+<!-- fatsecret API nutrition label 
+            <script>fatsecret.setContainer("my_container");</script>
+            <div id = "search"></div>
+              <script>fatsecret.writeHolder("search")</script>
+            <div id = "food_title"></div>
+              <script>fatsecret.writeHolder("food_title")</script>
+            <div id = "nutrition_panel"></div>
+              <script>fatsecret.writeHolder("nutrition_panel")</script>
+              -->
           </div>
           <br></br>
           <div class="input-group">
             <label for="numberOfServings">Number of Servings</label>
             <input type="number" name="numberOfServings" id="numberOfServings" class="input-box"
-              placeholder="For example: 5'6 = 60" value={{numberOfServings}}>
+              placeholder="" value={{numberOfServings}}>
+          </div>
+          <br></br>          
+          <div class="input-group">
+            <label for="numberOfServings">Calories Per Serving</label>
+            <input type="number" name="caloriesPerServing" id="caloriesPerServings" class="input-box"
+              placeholder="" value={{caloriesPerServings}}>
           </div>
           <br></br>
-          <button type="button" class="submit btn btn-danger">Danger</button>
+          <button type="button" class="submit btn btn-danger">Add</button>
         </form>
       </div>
     </div>
@@ -70,12 +75,6 @@
             <th>Servings</th>
             <th>Total</th>
           </tr>
-          <tr>
-            <th></th>
-            <td class="fatsecret_container mealDisplay">
-            </td>
-            <td class="fatsecret_container Display"></td>
-            <td class="fatsecret_container totalDisplay"></td>
         </table>
       </div>
     </div>
@@ -86,5 +85,5 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
-<script src="https://platform.fatsecret.com/js?key=0dc19338c59a4598a086c7da142aca6b"></script>
+<script src="https://platform.fatsecret.com/js?key=0dc19338c59a4598a086c7da142aca6b&auto_load=true"></script>
 </body>

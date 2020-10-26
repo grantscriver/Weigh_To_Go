@@ -2,7 +2,7 @@
 $(".currentDate").text(moment().format("l"));
 
 $(".submit").on("click", function () {
-  console.log("clicked button!");
+  console.log("button clicked!");
   let mealEntry = $("input").val();
   if (mealEntry != "") {
     fatsecret.addRef("caloriestotal", "fatsecret_caloriestotal");
@@ -11,3 +11,6 @@ $(".submit").on("click", function () {
     $(".error").text("Field cannot be left empty");
   }
 });
+
+
+

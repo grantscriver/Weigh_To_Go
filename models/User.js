@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
-
+const bcrypt = require('bcryptjs');
 
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  const User = sequelize.define("User", {
   id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL,
       allowNull: false
       },
-  desire_weight: {
+  goal_weight: {
       type: DataTypes.DECIMAL,
       allowNull: true,
       }, 
@@ -61,12 +61,23 @@ module.exports = function(sequelize, DataTypes) {
       } 
 });
 
+/* User has daily logs of Calorie_counter
+User.associate = function(models) {
+//   Associating User with Calorie_counter
+//   When an Calorie_user is deleted, also delete any associated Calorie_counter
+  User.hasMany(models.Calorie_counter, {
+    onDelete: "cascade"
+  });
+*/
 
-//Calorie_user.associate = function(models) {
-  // Associating User with Calorie_counter
-  // When an Calorie_user is deleted, also delete any associated Calorie_counter
-  //User.hasMany(models.Calorie_counter, {
-  //  onDelete: "cascade"
-  //});
+// Before the user is created, automatically hash their password.
+  User.addHook('beforeCreate', function (user) {
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
+  });
 return User;
 };
+
