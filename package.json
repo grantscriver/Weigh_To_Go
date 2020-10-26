@@ -4,7 +4,7 @@
   "description": "Calorie Tracker and Daily Food Journal",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js production",
     "devStart": "nodemon server.js"
   },
   "repository": {

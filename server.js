@@ -29,7 +29,7 @@ app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
 app.use("/app", require("./routes/app"));
 app.use("/users", require("./routes/users"));
 
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 db.sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {
