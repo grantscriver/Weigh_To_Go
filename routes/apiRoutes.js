@@ -5,11 +5,11 @@ const passport = require('../middleware/passport');
 
 module.exports = function (app) {
   
-  app.post('/api/User', passport.authenticate('local'), function (req, res) {
+  app.post('/api/login', passport.authenticate('local'), function (req, res) {
     res.json(req.User);
   });
 
-  app.post('/api/User', function (req, res) {
+  app.post('/api/register', function (req, res) {
     db.User.create({
       username: req.body.username,
       gender: req.body.gender,
