@@ -33,6 +33,8 @@ app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
 //tell the app to use the file paths in the routes folder
 //this route creates and posts the new users
 app.use("/users", require("./routes/apiRoutes.js"));
+require("./routes/apiRoutes.js")(app);
+
 
 const PORT = process.env.PORT || 3000;
 

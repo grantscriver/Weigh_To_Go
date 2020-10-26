@@ -1,76 +1,50 @@
-const LocalStrategy = require("passport").Strategy;
-const express = require("express");
-const router = express.Router();
-const Sequelize = require("sequelize");
-const bcrypt = require("bcryptjs");
-const passport = require("passport");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
-// Load User model
-const User = require("../models/User");
+var db = require("../models");
 
-// Login page authentication
-//const { forwardAuthenticated } = require('../public/js/auth');
-//router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
-
-//API call to Users to retrieve Users
-router.get("/", (req, res) =>
-  User.findAll()
-    .then((User) => {
-      console.log(User);
-    })
-    .catch((err) => console.log(err))
-);
-
-module.exports = function (passport) {
-  passport.use(
-    new LocalStrategy({ username: "username" }, (username, password, done) => {
-      //Search usernames
-      User.findOne({
-        username: username,
-      }).then((user) => {
-        //If no matching username throw error
-        if (!user) {
-          return done(null, false, {
-            message: "This Username is not registered",
-          });
-        } else {
-          //Next match password
-          bcrypt.compare(password, user.password, (err, isMatch) => {
-            //If no match throw error password is incorrect
-            if (err) throw err;
-            if (isMatch) {
-              //Login redirect to dashboard
-              router.post("/login", (req, res, next) => {
-                passport.authenticate("local", {
-                  successRedirect: "/dashboard",
-                  failureRedirect: "/login",
-                })(req, res, next);
-              });
-            }
-          });
-        }
-      });
-    })
-  );
-};
-
-/*
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-  });
-
-  passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-      done(err, user);
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
+passport.use(new LocalStrategy(
+  // Our user will sign in using an email, rather than a "username"
+  {
+    usernameField: "username"
+  },
+  function(username, password, done) {
+    // When a user tries to sign in this code runs
+    console.log(db);
+    db.User.findOne({
+      where: {
+        username: username
+      }
+    }).then(function(dbUser) {
+      // If there's no user with the given email
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Username does not exist."
+        });
+      }
+      // If there is a user with the given username, but the password the user gives us is incorrect
+      else if (!dbUser.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
+      // If none of the above, return the user
+      return done(null, dbUser);
     });
-  });
+  }
+));
 
-// Logout
-  router.get('/logout', (req, res) => {
-      req.logout();
-      req.send('You are logged out');
-      res.redirect('/login');
-  });  
-}; 
-  
-*/
+// In order to help keep authentication state across HTTP requests,
+// Sequelize needs to serialize and deserialize the user
+// Just consider this part boilerplate needed to make it all work
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+// Exporting our configured passport
+module.exports = passport;
