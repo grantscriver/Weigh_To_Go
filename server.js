@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const passport = require("passport");
 
 //handlebars
 const handlebars = require("express-handlebars");
@@ -18,10 +19,14 @@ app.use(express.static("public"));
 const db = require("./models");
 
 //landing page and navbar route
-app.get("/", (req, res) => res.render("login.handlebars", { layout: "landingPg" }));
+app.get("/", (req, res) =>
+  res.render("login.handlebars", { layout: "landingPg" })
+);
 app.get("/login", (req, res) => res.render("login.handlebars"));
 app.get("/register", (req, res) => res.render("register.handlebars"));
-app.get("/Calorie_counter", (req, res) => res.render("Calorie_counter.handlebars"));
+app.get("/Calorie_counter", (req, res) =>
+  res.render("Calorie_counter.handlebars")
+);
 app.get("/graph", (req, res) => res.render("Graph.handlebars"));
 app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
 
