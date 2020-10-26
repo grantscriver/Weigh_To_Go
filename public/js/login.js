@@ -1,5 +1,14 @@
-//API call to Users to retrieve matching username
-//if no username throw error Username does not exist
-//compare password
-//if a match then redirect to dashboard
-//if no match throw error password is incorrect
+// loginUser does a post to our api/login route, and if successful, redirects them to the user dashboard
+    function loginUser(username, password) {
+        $.get('/api/User', {
+          username: username,
+          password: password,
+        })
+          .then(function () {
+//A successful login sends the user to their dashboard
+            window.location.replace('/dashboard');
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
+      }
