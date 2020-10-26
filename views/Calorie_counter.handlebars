@@ -57,13 +57,13 @@
               placeholder="For example: 5'6 = 60" value={{numberOfServings}}>
           </div>
           <br></br>
-          <input type="submit" value="Add Info" class="btn btn-reverse">
+          <button type="button" class="submit btn btn-danger">Danger</button>
         </form>
       </div>
     </div>
     <div class="col" id="foodDiaryColTwo">
       <div class="col-md-8" id="foodDiaryColTwo">
-        <table style="text-align:center;" width="650" height="650" border="10">
+        <table style="text-align:center;" width="650" height="65" border="10">
           <tr>
             <td></td>
             <th>Foods Eaten</th>
@@ -72,16 +72,10 @@
           </tr>
           <tr>
             <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+            <td class="fatsecret_container mealDisplay">
+            </td>
+            <td class="fatsecret_container Display"></td>
+            <td class="fatsecret_container totalDisplay"></td>
         </table>
       </div>
     </div>
@@ -92,4 +86,5 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
-{{!-- </body> --}}
+<script src="https://platform.fatsecret.com/js?key=0dc19338c59a4598a086c7da142aca6b"></script>
+</body>

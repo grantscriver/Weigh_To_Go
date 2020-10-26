@@ -1,24 +1,13 @@
 // Get references to page elements
 $(".currentDate").text(moment().format("l"));
 
-var myConfig = {
-  type: "line",
-  series: [
-    {
-      values: [20, 40, 25, 50, 15, 45, 33, 34],
-    },
-    {
-      values: [5, 30, 21, 18, 59, 50, 28, 33],
-    },
-    {
-      values: [30, 5, 18, 21, 33, 41, 29, 15],
-    },
-  ],
-};
-
-zingchart.render({
-  id: "myChart",
-  data: myConfig,
-  height: "100%",
-  width: "100%",
+$(".submit").on("click", function () {
+  console.log("clicked button!");
+  let mealEntry = $("input").val();
+  if (mealEntry != "") {
+    fatsecret.addRef("caloriestotal", "fatsecret_caloriestotal");
+    $(".mealDisplay").append("<td>" + mealEntry + "</td>");
+  } else {
+    $(".error").text("Field cannot be left empty");
+  }
 });
