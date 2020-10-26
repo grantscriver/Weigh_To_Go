@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -39,6 +40,7 @@
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
     "sequelize": "^6.3.5"
   },
   "optionalDependencies": {
