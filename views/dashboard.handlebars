@@ -27,9 +27,47 @@
             </div>
         </nav>
     </div>
+    <section id="add" class="container-fluid">
+        <div class="row" id="row-1"></div>
+        <div class="row" id="row-2">
+            <div class="col-md-3" id="col1Dashboard"></div>
+            <div class="col-md-6" id="col2Dashboard">
+                <div class="form-wrap">
+                    <h1>Welcome (insert user name)</h1>
+                    <br></br>
+                    <div class="input-group">
+                        <label for="current_weight_2">Your Current Weight is: </label>
+                        <input type="number" name="current_weight_2" id="current_weight_2" class="input-box"
+                            placeholder="For example: 150" value={{current_weight_2}}>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <div class="input-group">
+                        <label for="weightEntry">Would you like to update your weight today?</label>
+                        <input type="radio" id="yes" name="yes_or_no" value="yes">
+                        <label for="yes">yes</label><br>
+                        <input type="radio" id="no" name="yes_or_no" value="no">
+                        <label for="'no'">no</label><br>
+                    </div>
+                    <br></br>
+                    <div class="input-group">
+                        <label for="age">New current weight: </label>
+                        <input type="number" name="newWeight" id="newWeight" class="input-box"
+                            placeholder="new current weight here" value={{newWeight}}>
+                    </div>
+                    <br></br>
+                    <label for="goal_weight">Your goal weight is: </label>
+                    <input type="number" name="goal_weight" id="goal_weight" class="input-box"
+                        placeholder="For example: 150" value={{goal_weight}}>
+                    <br></br>
+                    <label for="goal_difference">You are (insert pounds here) away from your goal!</label>
+                    <input type="number" name="goal_difference" id="goal_difference" class="input-box"
+                        placeholder="For example: 150" value={{"goal_difference"}}>
+                </div>
+            </div>
+        </div>
 
 
 
-
-    </body>
-</section>
+        </body>
+    </section>

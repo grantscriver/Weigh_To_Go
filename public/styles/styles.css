@@ -43,13 +43,17 @@
 }
 
 #row-1 {
-  max-height: 50%;
-  background-color: #152659;
+  max-height: 100%;
+  background-color: #f29441;
+}
+
+#row-2 {
+  max-height: 100%;
 }
 
 #row-3 {
-  max-height: 50%;
-  background-color: #152659;
+  max-height: 100%;
+  background-color: #f29441;
 }
 
 #add {
@@ -64,6 +68,10 @@
   background-color: #152659;
 }
 
-.container-fluid {
-  max-width: 100%;
+#spanLogin {
+  height: 33%;
+}
+
+html body {
+  background-color: #152659;
 }
