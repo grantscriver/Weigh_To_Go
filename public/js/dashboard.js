@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   console.log("in dashboard.js");
   // This file just does a GET request to figure out which user is logged in
@@ -12,3 +13,4 @@ $(document).ready(function () {
     );
   });
 });
+

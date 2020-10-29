@@ -10,7 +10,9 @@ $(document).ready(function () {
     event.preventDefault();
     var userData = {
       email: emailInput.val(),
+
       password: passwordInput.val(),
+
     };
 
     if (!userData.email || !userData.password) {
@@ -29,7 +31,9 @@ $(document).ready(function () {
       email: email,
       password: password,
     })
+
       .then(function () {
+
         window.location.replace("/dashboard");
         // If there's an error, log the error
       })
