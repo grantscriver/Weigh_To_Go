@@ -4,7 +4,7 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
+  // If the user has valid login credentials, send them to the dashboard page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
@@ -17,7 +17,13 @@ module.exports = function(app) {
     console.log("in app post inside api-routes")
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      username: req.user.username,
+      gender: req.user.gender,
+      age: req.user.age,
+      current_height: req.user.current_height,
+      current_weight: req.user.current_weight,
+      goal_weight: req.user.goal_weight,
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -39,12 +45,16 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
+      // Otherwise send back the user username
       res.json({
-        email: req.user.email,
-        id: req.user.id
+        username: req.user.username,
+        gender: req.user.gender,
+        age: req.user.age,
+        current_height: req.user.current_height,
+        current_weight: req.user.current_weight,
+        goal_weight: req.user.goal_weight,
       });
     }
   });
+
 };
