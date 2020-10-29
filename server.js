@@ -1,45 +1,38 @@
-const express = require("express");
-const app = express();
-const passport = require("passport");
+// Requiring necessary npm packages
+var express = require("express");
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
+
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
+
+
+
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //handlebars
 const handlebars = require("express-handlebars");
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view-engine", "handlebars");
 
-//express middleware to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
-//Setting static folder
-app.use(express.json());
-app.use(express.static("public"));
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
-//connecting DB
-const db = require("./models");
-
-//landing page and navbar route
-app.get("/", (req, res) =>
-  res.render("login.handlebars", { layout: "landingPg" })
-);
-app.get("/login", (req, res) => res.render("login.handlebars"));
-app.get("/register", (req, res) => res.render("register.handlebars"));
-app.get("/Calorie_counter", (req, res) =>
-  res.render("Calorie_counter.handlebars")
-);
-app.get("/graph", (req, res) => res.render("Graph.handlebars"));
-app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
-
-//tell the app to use the file paths in the routes folder
-//this route creates and posts the new users
-app.use("/users", require("./routes/apiRoutes.js"));
-require("./routes/apiRoutes.js")(app);
-
-
-const PORT = process.env.PORT || 3000;
-
-db.sequelize.sync({ force: true }).then(function () {
-  app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });

@@ -1,83 +1,33 @@
-const Sequelize = require('sequelize');
-const bcrypt = require('bcryptjs');
-
+// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
+var bcrypt = require("bcryptjs");
+// Creating our User model
 module.exports = function(sequelize, DataTypes) {
-  const User = sequelize.define("User", {
-  id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true, 
-      autoIncrement: true
-      },
-  username: {
+  console.log("in user.js");
+  var User = sequelize.define("User", {
+    // The email cannot be null, and must be a proper email before creation
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      },
-  gender: {
-      type: DataTypes.STRING,
-      allowNull: false
-      },
-  age: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-      },
-  current_height: {
-      type: DataTypes.STRING,
-      allowNull: false
-      },   
-  current_weight: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-      },
-  goal_weight: {
-      type: DataTypes.DECIMAL,
-      allowNull: true,
-      }, 
-  current_date: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      },
-/*  calories_goal: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-      },
-    weekly_loss_goal: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-      }, 
-    target_calories: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-      },  
-*/
+      validate: {
+        isEmail: true
+      }
+    },
+    // The password cannot be null
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password2: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      } 
-});
-
-/* User has daily logs of Calorie_counter
-User.associate = function(models) {
-//   Associating User with Calorie_counter
-//   When an Calorie_user is deleted, also delete any associated Calorie_counter
-  User.hasMany(models.Calorie_counter, {
-    onDelete: "cascade"
+      allowNull: false
+    }
   });
-*/
-
-// Before the user is created, automatically hash their password.
-  User.addHook('beforeCreate', function (user) {
-    user.password = bcrypt.hashSync(
-      user.password,
-      bcrypt.genSaltSync(10),
-      null
-    );
+  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  console.log("in user.js after sequelize")
+  User.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  User.addHook("beforeCreate", function(user) {
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
-return User;
+  return User;
 };
-
