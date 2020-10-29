@@ -9,10 +9,10 @@ module.exports = function(app) {
 
 app.get("/", function(req, res) {
 if (req.user) {
-  res.redirect("/members");
+  res.redirect("/login");
 }
 console.log("in app get /")
-res.sendFile(path.join(__dirname, "../public/signup.html"));
+res.sendFile(path.join(__dirname, "../public/login.html"));
 //res.render("signup.handlebars", { layout: "landingPg" })
 }
   
@@ -21,7 +21,7 @@ res.sendFile(path.join(__dirname, "../public/signup.html"));
 );
 /*
 app.get("/login", (req, res) => res.render("login.handlebars"));
-app.get("/register", (req, res) => res.render("register.handlebars"));
+app.get("/calorie_user", (req, res) => res.render("calorie_user.handlebars"));
 app.get("/Calorie_counter", (req, res) =>
   res.render("Calorie_counter.handlebars")
 );
@@ -30,9 +30,9 @@ app.get("/dashboard", (req, res) => res.render("dashboard.handlebars"));
 */
 /*
   app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the dashboard page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/dashboard");
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
@@ -46,9 +46,9 @@ app.get("/Calorie_counter", (req, res) =>
 app.get("/graph", (req, res) => res.render("Graph.handlebars"));
 
 app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the dashboard page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/login");
     }
     console.log("in app get /login")
     res.sendFile(path.join(__dirname, "../public/login.html"));
@@ -57,10 +57,10 @@ app.get("/login", function(req, res) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    console.log("in app get /members")
-    //res.sendFile(path.join(__dirname, "../public/members.html"));
-    res.render("members.handlebars")
+  app.get("/dashboard", isAuthenticated, function(req, res) {
+    console.log("in app get /dashboard")
+    //res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+    res.render("dashboard.handlebars")
   });
   
 };
