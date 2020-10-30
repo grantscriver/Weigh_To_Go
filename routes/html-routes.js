@@ -8,25 +8,29 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     //automatically redirect to the login page first
     res.redirect("/login");
-    //res.sendFile(path.join(__dirname, "../public/login.html"));
-    res.render("login.handlebars");
+  });
+
+  //login
+  app.get("/login", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+    //res.render("login.handlebars", { layout: "landingPg" })
   });
 
   //signup
   app.get("/signup", function(req, res) {
-  //res.sendFile(path.join(__dirname, "../public/signup.html"));
-    res.render("signup.handlebars");
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    //res.render("signup.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/dashboard", isAuthenticated, function (req, res) {
-    //res.sendFile(path.join(__dirname, "../public/dashboard.html"));
-    res.render("dashboard.handlebars");
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+    //res.render("dashboard.handlebars");
   });
 
-  app.get("/graph", function (req, res) {
-    res.render ("graph.handlebars");
-
+  app.get("/graph", isAuthenticated, function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/graph.html"));
+    //res.render ("graph.handlebars");
   });
 }

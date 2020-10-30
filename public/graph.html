@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="../../public/stylesheets/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
+
+  <title>Weigh to Go!</title>
+</head>
+
+<body>
+    <section id="add" class="container-fluid">
+    <title>Weigh to Go!</title>
+    <div class="row" id="graphNav">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand">Weigh to Go</a>
+            <!--Button for responsive design-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--This is where the Navbar is encoded-->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link disabled" href="./Graph">Track Your Progress<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Calorie_counter">Food Diary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./members">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./logout">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="graphDiv">
+        <br>
+        <h4>Weight Tracking</h4>
+        <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
+        <br>
+        <h4>Calorie Tracking</h4>
+        <div id='myChart2'><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
+        <br>
+    </div>
+
+</section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<script type="text/javascript" src="/js/graph.js"></script>
+</body>
+</html>
