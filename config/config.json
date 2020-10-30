@@ -1,7 +1,12 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "root",
     "password": "",
+=======
+    "username": "theman",
+    "password": "password",
+>>>>>>> 1fce4f3abc3f69a8167dc949902ba94439d653d5
     "database": "appDB",
     "host": "localhost",
     "dialect": "mysql"

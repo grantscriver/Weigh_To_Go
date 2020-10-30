@@ -62,6 +62,7 @@ module.exports = function (app) {
       "servings_consumed": req.body.servings_consumed,
       "total_calories": req.body.total_calories
     };
+<<<<<<< HEAD
   
   
   
@@ -82,4 +83,27 @@ module.exports = function (app) {
            //console.log(newFoodData);
          });
     });
+=======
+
+
+
+    // db.Calorie_counter.create(foodCalorie)
+    //   .then(function (newFoodData) {
+    //     db.Calorie_counter.findAll().then(function (foodData) {
+    //       //res.render("Calorie_counter")
+    //       //res.render("Calorie_counter", "hello")
+    //       console.log(foodData)
+    //     })
+    //   }) 
+    
+    
+     db.Calorie_counter.create(foodCalorie)
+       .then(function (newFoodData) {
+         res.json(newFoodData)
+         //res.render("Calorie_counter", newFoodData)
+         //console.log(newFoodData);
+       })
+
+  })
+>>>>>>> 1fce4f3abc3f69a8167dc949902ba94439d653d5
 };
