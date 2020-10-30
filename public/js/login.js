@@ -6,10 +6,13 @@ $(document).ready(function () {
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function (event) {
+    console.log("in login.js");
     event.preventDefault();
     var userData = {
       email: emailInput.val(),
+
       password: passwordInput.val(),
+
     };
 
     if (!userData.email || !userData.password) {
@@ -30,6 +33,7 @@ $(document).ready(function () {
     })
 
       .then(function () {
+
         window.location.replace("/dashboard");
         // If there's an error, log the error
       })

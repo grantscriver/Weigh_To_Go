@@ -24,7 +24,7 @@ $(document).ready(function () {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function addCalorieData(foodname, servings_consumed, food_calories_uom, total_calories) {
-    console.log(foodname, servings_consumed, food_calories_uom, total_calories)
+
     $.post("/api/calorie", {
       foodname: foodname,
       servings_consumed: servings_consumed,
@@ -32,7 +32,7 @@ $(document).ready(function () {
       total_calories: total_calories
     })
       .then(function (data) {
-        console.log(data)
+
         window.location.replace("/Calorie_counter");
       })
       .catch(function (err) {

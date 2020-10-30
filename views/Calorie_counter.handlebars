@@ -14,7 +14,7 @@
             <a class="nav-link disabled" href="./Calorie_counter">Food Diary<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./members">Dashboard</a>
+            <a class="nav-link" href="./dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./Graph">Track Your Progress</a>
@@ -71,12 +71,11 @@
       </div>
       <form class="calorie-counter">
 
-
-        <br></br>
+        {{!-- <br></br>
         <div class="input-group">
           <label for="calorieGoal">Calorie Goal for Today:</label>
           <input type="number" name="calorieGoal" id="calorieGoal" class="input-box" placeholder="">
-        </div>
+        </div> --}}
 
         <br></br>
         <div class="input-group">
@@ -96,19 +95,46 @@
         </div>
         <br></br>
         <button type="submit" class="btn btn-default">Add</button>
+
+
+
+
       </form>
 
 
     </div>
 
     <div class="col-md-8" id="foodDiaryColTwo">
+
+      {{!-- <ul>
+          {{#each foodData }}
+          {{this.foodname}}
+          {{/each}}
+        </ul> --}}
+
       <table style="text-align:center;" width="650" height="65" border="10">
         <tr>
           <td></td>
-          <th>Foods Eaten</th>
-          <th>Servings</th>
-          <th>Total</th>
+          <thead>
+            <th>Foods Eaten</th>
+            <th>Servings</th>
+            <th>Calories per serving</th>
+            <th>Total Calories</th>
+          </thead>
+          <tbody>
+            {{#each foodData }}
+
+            <tr>
+
+              <td>{{this.foodname}}</td>
+              <td>{{this.food_calories_uom}}</td>
+              <td>{{this.servings_consumed}}</td>
+              <td>{{this.total_calories}}</td>
+            </tr>
+
+            {{/each}}
         </tr>
+        </tbody>
       </table>
     </div>
 
