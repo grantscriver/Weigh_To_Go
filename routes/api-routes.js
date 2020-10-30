@@ -13,7 +13,7 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-    console.log("in app post inside api-routes");
+    console.log("req.body", req.body);
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -25,7 +25,7 @@ module.exports = function (app) {
       goal_weight: req.body.goal_weight,
     })
       .then(function () {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/api/dashboard");
       })
       .catch(function (err) {
         res.status(401).json(err);
@@ -42,7 +42,7 @@ module.exports = function (app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user username
+      // Otherwise send back the users info
       res.json({
         username: req.user.username,
         gender: req.user.gender,
@@ -62,25 +62,24 @@ module.exports = function (app) {
       "servings_consumed": req.body.servings_consumed,
       "total_calories": req.body.total_calories
     };
-
-
-
-    // db.Calorie_counter.create(foodCalorie)
-    //   .then(function (newFoodData) {
-    //     db.Calorie_counter.findAll().then(function (foodData) {
-    //       //res.render("Calorie_counter")
-    //       //res.render("Calorie_counter", "hello")
-    //       console.log(foodData)
-    //     })
-    //   }) 
-    
-    
-     db.Calorie_counter.create(foodCalorie)
-       .then(function (newFoodData) {
-         res.json(newFoodData)
-         //res.render("Calorie_counter", newFoodData)
-         //console.log(newFoodData);
-       })
-
-  })
+  
+  
+  
+      // db.Calorie_counter.create(foodCalorie)
+      //   .then(function (newFoodData) {
+      //     db.Calorie_counter.findAll().then(function (foodData) {
+      //       //res.render("Calorie_counter")
+      //       //res.render("Calorie_counter", "hello")
+      //       console.log(foodData)
+      //     })
+      //   }) 
+      
+      
+       db.Calorie_counter.create(foodCalorie)
+         .then(function (newFoodData) {
+           res.json(newFoodData)
+           //res.render("Calorie_counter", newFoodData)
+           //console.log(newFoodData);
+         });
+    });
 };
