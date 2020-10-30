@@ -54,4 +54,33 @@ module.exports = function (app) {
     }
   });
 
+  app.post("/api/calorie", function (req, res) {
+    //create new data from front end date and save to database
+    var foodCalorie = {
+      "foodname": req.body.foodname,
+      "food_calories_uom": req.body.food_calories_uom,
+      "servings_consumed": req.body.servings_consumed,
+      "total_calories": req.body.total_calories
+    };
+
+
+
+    // db.Calorie_counter.create(foodCalorie)
+    //   .then(function (newFoodData) {
+    //     db.Calorie_counter.findAll().then(function (foodData) {
+    //       //res.render("Calorie_counter")
+    //       //res.render("Calorie_counter", "hello")
+    //       console.log(foodData)
+    //     })
+    //   }) 
+    
+    
+     db.Calorie_counter.create(foodCalorie)
+       .then(function (newFoodData) {
+         res.json(newFoodData)
+         //res.render("Calorie_counter", newFoodData)
+         //console.log(newFoodData);
+       })
+
+  })
 };

@@ -40,7 +40,7 @@
         </form>
       </div>
       <div class="form-wrap">
-        <form action="/users/register" method="POST">
+        {{!-- <form action="/users/register" method="POST">
           <div id = "my_container" class = "fatsecret_container">
             <img url="../public/images/nutritionLabel.png" alt="mock up fatsecret nutrition label" style="width:150px">
 <!-- fatsecret API nutrition label 
@@ -67,27 +67,58 @@
           </div>
           <br></br>
           <button type="button" class="submit btn btn-danger">Add</button>
-        </form>
+        </form> --}}
       </div>
-    </div>
-    <div class="col" id="foodDiaryColTwo">
-      <div class="col-md-8" id="foodDiaryColTwo">
-        <table style="text-align:center;" width="650" height="65" border="10">
-          <tr>
-            <td></td>
-            <th>Foods Eaten</th>
-            <th>Servings</th>
-            <th>Total</th>
-          </tr>
-        </table>
-      </div>
+      <form class="calorie-counter">
+
+
+        <br></br>
+        <div class="input-group">
+          <label for="calorieGoal">Calorie Goal for Today:</label>
+          <input type="number" name="calorieGoal" id="calorieGoal" class="input-box" placeholder="">
+        </div>
+
+        <br></br>
+        <div class="input-group">
+          <label for="foodEaten">Food Eaten</label>
+          <input type="text" name="foodEaten" id="foodEaten" class="input-box" placeholder="">
+        </div>
+        <br></br>
+
+        <div class="input-group">
+          <label for="numberOfServings">Number of Servings</label>
+          <input type="number" name="numberOfServings" id="numberOfServings" class="input-box" placeholder="">
+        </div>
+        <br></br>
+        <div class="input-group">
+          <label for="caloriesPerServing">Calories Per Serving</label>
+          <input type="number" name="caloriesPerServing" id="caloriesPerServing" class="input-box" placeholder="">
+        </div>
+        <br></br>
+        <button type="submit" class="btn btn-default">Add</button>
+      </form>
+
+
     </div>
 
+    <div class="col-md-8" id="foodDiaryColTwo">
+      <table style="text-align:center;" width="650" height="65" border="10">
+        <tr>
+          <td></td>
+          <th>Foods Eaten</th>
+          <th>Servings</th>
+          <th>Total</th>
+        </tr>
+      </table>
+    </div>
+
+
   </div>
-  </div>
+
 </section>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
 <script src="https://platform.fatsecret.com/js?key=0dc19338c59a4598a086c7da142aca6b&auto_load=true"></script>
+<script type="text/javascript" src="js/calorie.js"></script>
 </body>
