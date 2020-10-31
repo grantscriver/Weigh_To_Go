@@ -26,6 +26,9 @@
           </div>
           <button type="submit" class="btn btn-danger" style="float:right;">Add</button>
         </form>
+        <form class="clear-calorie">
+          <button type="submit" class="btn btn-default">Clear Table</button>
+        </form>
       </div>
     </div>
     <div class="col-7 p-2" id="calorieTable">
@@ -35,7 +38,8 @@
             <th>Foods Eaten</th>
             <th>Servings</th>
             <th>Calories per serving</th>
-            <th>Total Calories</th>
+            <th>Meal Calories</th>
+            <th>Daily Calorie Total</th>
           </thead>
           <tbody>
             {{#each foodData }}
@@ -44,13 +48,15 @@
               <td>{{this.food_calories_uom}}</td>
               <td>{{this.servings_consumed}}</td>
               <td>{{this.total_calories}}</td>
+              <td>{{this.daily_total_calories}}</td>
             </tr>
             {{/each}}
         </tr>
-</tbody>
+        </tbody>
       </table>
     </div>
   </div>
 </div>
 <script type="text/javascript" src="/js/index.js"></script>
 <script type="text/javascript" src="js/calorie.js"></script>
+<script type="text/javascript" src="js/user.js"></script>

@@ -19,13 +19,27 @@ module.exports = function (app) {
   app.get("/Calorie_counter", (req, res) =>
     db.Calorie_counter.findAll().then(function (foodData) {
       var foodDataArray = [];
+      var daily_total = 0;
       for (var i = 0; i < foodData.length; i++) {
-        foodDataArray.push({
-          foodname: foodData[i].foodname,
-          food_calories_uom: foodData[i].food_calories_uom,
-          servings_consumed: foodData[i].servings_consumed,
-          total_calories: foodData[i].total_calories,
-        });
+        if (i == 0) {
+          daily_total = Number(daily_total + foodData[i].total_calories);
+          foodDataArray.push({
+            foodname: foodData[i].foodname,
+            food_calories_uom: foodData[i].food_calories_uom,
+            servings_consumed: foodData[i].servings_consumed,
+            total_calories: foodData[i].total_calories,
+            daily_total_calories: foodData[i].total_calories,
+          });
+        } else {
+          daily_total = daily_total + Number(foodData[i].total_calories);
+          foodDataArray.push({
+            foodname: foodData[i].foodname,
+            food_calories_uom: foodData[i].food_calories_uom,
+            servings_consumed: foodData[i].servings_consumed,
+            total_calories: foodData[i].total_calories,
+            daily_total_calories: daily_total,
+          });
+        }
       }
       res.render("../views/Calorie_counter.handlebars", {
         foodData: foodDataArray,
