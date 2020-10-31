@@ -1,9 +1,5 @@
-
-
-
 $(document).ready(function () {
   // Getting references to our form and input
-  //var signUpForm = $("form.signup");
   var calorieForm = $("form.Calorie_counter");
   var foodEaten = $("input#foodEaten");
   var numberOfservings = $("input#numberOfservings");
@@ -16,10 +12,17 @@ $(document).ready(function () {
       foodname: $("#foodEaten").val().trim(),
       servings_consumed: $("#numberOfServings").val().trim(),
       food_calories_uom: $("#caloriesPerServing").val().trim(),
-      total_calories: $("#numberOfServings").val().trim() * $("#caloriesPerServing").val().trim()
+      total_calories:
+        $("#numberOfServings").val().trim() *
+        $("#caloriesPerServing").val().trim(),
     };
-    // call a function that will run a post for the calorie data
-    addCalorieData(calorieData.foodname, calorieData.servings_consumed, calorieData.food_calories_uom, calorieData.total_calories);
+    // If we have an email and password, run the signUpUser function
+    addCalorieData(
+      calorieData.foodname,
+      calorieData.servings_consumed,
+      calorieData.food_calories_uom,
+      calorieData.total_calories
+    );
   });
 
   $(".clear-calorie").on("submit", function (event) {
@@ -33,21 +36,23 @@ $(document).ready(function () {
 
   // Does a post to the calorie route
   // Otherwise we log any errors
-  function addCalorieData(foodname, servings_consumed, food_calories_uom, total_calories) {
-
+  function addCalorieData(
+    foodname,
+    servings_consumed,
+    food_calories_uom,
+    total_calories
+  ) {
     $.post("/api/calorie", {
       foodname: foodname,
       servings_consumed: servings_consumed,
       food_calories_uom: food_calories_uom,
-      total_calories: total_calories
+      total_calories: total_calories,
     })
       .then(function (data) {
-
         window.location.replace("/Calorie_counter");
       })
       .catch(function (err) {
         console.log(err);
       });
   }
-
 });

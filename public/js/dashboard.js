@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   console.log("in dashboard.js");
   // This file just does a GET request to figure out which user is logged in
@@ -8,9 +7,8 @@ $(document).ready(function () {
     $(".username").text(data.username);
     $(".current_weight").text(data.current_weight);
     $(".goal_weight").text(data.goal_weight);
-    $(".goal_difference").html(
+    $(".goal_difference").text(
       Math.round(data.current_weight - data.goal_weight)
     );
   });
 });
-

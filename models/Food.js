@@ -1,6 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   var Calorie_counter = sequelize.define("Calorie_counter", {
-
       foodname: {
           type: DataTypes.STRING,
           allowNull: false
@@ -18,7 +17,5 @@ module.exports = function (sequelize, DataTypes) {
           allowNull: true
       },
   });
-
   return Calorie_counter;
-
 };

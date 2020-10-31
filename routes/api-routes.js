@@ -13,7 +13,6 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -64,17 +63,14 @@ db.Calorie_counter.truncate()
   app.post("/api/calorie", function (req, res) {
     //create new data from front end and save to database
     var foodCalorie = {
-      "foodname": req.body.foodname,
-      "food_calories_uom": req.body.food_calories_uom,
-      "servings_consumed": req.body.servings_consumed,
-      "total_calories": req.body.total_calories
+      foodname: req.body.foodname,
+      food_calories_uom: req.body.food_calories_uom,
+      servings_consumed: req.body.servings_consumed,
+      total_calories: req.body.total_calories,
     };
 
-    // add a row to the database with the new data    
-    db.Calorie_counter.create(foodCalorie)
-        .then(function (newFoodData) {
-          res.json(newFoodData)
-        })
-
-  })
+    db.Calorie_counter.create(foodCalorie).then(function (newFoodData) {
+      res.json(newFoodData);
+    });
+  });
 };

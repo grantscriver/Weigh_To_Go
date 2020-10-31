@@ -21,11 +21,16 @@ $(document).ready(function () {
       goal_weight: goal_weightInput.val(),
     };
 
-    if (!calorie_userData.username || !calorie_userData.gender || !calorie_userData.age || !calorie_userData.current_height || !calorie_userData.current_weight || !calorie_userData.goal_weight) {
+    if (
+      !calorie_userData.username ||
+      !calorie_userData.gender ||
+      !calorie_userData.age ||
+      !calorie_userData.current_height ||
+      !calorie_userData.current_weight ||
+      !calorie_userData.goal_weight
+    ) {
       return;
     } else {
-
-
       // calorie_userUser does a post to our "api/login" route and if successful, redirects us the the dashboard page
       function calorie_userUser() {
         $.post("/api/calorie_user", {
