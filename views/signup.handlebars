@@ -1,0 +1,62 @@
+<div class="container m-5">
+    <div class="jumbotron m-5 p-5" style="background-color:#62BC98">
+        <h2>CREATE AN ACCOUNT</h2>
+        <form class="signup">
+            <div class="form-group">
+                <label for="inputEmail">Email address</label>
+                <input type="email" class="form-control" id="email-input" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Create a Password</label>
+                <input type="password" class="form-control" id="password-input" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Create a username</label>
+                <input type="username" class="form-control" id="username-input" placeholder="Username">
+            </div>
+            <h2>Lets kick off your weigh loss journey</h2>
+            <p>
+                This informtion will be used to calculate how to help you
+                accomplish your weight loss goals!
+            </p>
+            <div class="col-5">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" id="age-input" class="input-box" style="float:right;"
+                        placeholder="Your age HERE" />
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text" name="gender" id="gender-input" class="input-box" style="float:right;"
+                        placeholder="Please enter MALE or FEMALE" />
+                </div>
+                <div class="form-group">
+                    <label for="height_in_inches">Height in Inches</label>
+                    <input type="number" name="height_in_inches" id="current_height-input" class="input-box"
+                        style="float:right;" placeholder="For example: 5'6 = 60" />
+                </div>
+                <div class="form-group">
+                    <label for="current_weight">Current Weight</label>
+                    <input type="number" name="current_weight" id="current_weight-input" class="input-box"
+                        style="float:right;" placeholder="For example: 150" />
+                </div>
+                <div class="form-group">
+                    <label for="goal_weight">Goal Weight</label>
+                    <input type="number" name="goal_weight" id="goal_weight-input" class="input-box"
+                        style="float:right;" placeholder="For example: 120" />
+                </div>
+            </div>
+            <p>Once you create your account you will be redirected to login with your email and your new password.
+            </p>
+
+            <button type="submit" class="btn btn-danger float-right">Begin</button>
+        </form>
+        <br />
+        <p>Or log in <a href="/login">HERE</a></p>
+    </div>
+</div>
+<script type="text/javascript" src="js/signup.js"></script>

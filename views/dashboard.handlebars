@@ -1,58 +1,27 @@
-<section id="add" class="container-fluid">
-
-
-    <div class="row" id="dashboardNav">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand">Weigh to Go</a>
-            <!--Button for responsive design-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--This is where the Navbar is encoded-->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link disabled" href="./dashboard">Dashboard<span
-                                class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Calorie_counter">Food Diary</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Graph">Track Your Progress</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./logout">Logout</a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
+<div class="container">
+    <div class="jumbotron m-5 p-5" style="background-color:#62BC98">
+        <h2>Welcome <span class="username">human</span>!</h2>
+        <br>
+        <h3>Your current weight is <span class="current_weight">162</span>pounds</h3>
+        <br>
+        <h3>Your goal weight is <span class="goal_weight">125</span>pounds</h3>
+        <br>
+        <h3 for="goal_difference">You are <span class="goal_difference">47</span> pounds away from your
+            goal!</h3>
+        <br>
+        <p>Lots of fad diets and weight-loss programs promise quick and easy weight loss. However, long-term weight loss
+            takes time and effort — and a long-term commitment. The foundation of successful weight loss remains a
+            healthy, calorie-controlled diet combined with increased physical activity.</p>
+        <p>It may seem obvious to set realistic weight-loss goals. But do you really know what's realistic? Over the
+            long term, it's smart to aim for losing 1 to 2 pounds a week. Even this level of weight loss can help lower
+            your risk of chronic health problems, such as heart disease and type 2 diabetes.</p>
+        <p>So how many calories should you strive to eat a day in order to lose 1-2 pounds a week? The answer to this
+            question depends on numerous factors, including your age, height, and current weight among others. When
+            trying to lose weight, a general rule of thumb is to reduce your calorie intake to 500 fewer calories than
+            your body needs to maintain your current weight. This will help you lose about 1 pound of body weight per
+            week.</p>
+        <h4>Based on the info you provided, to lose 2 pound a week, strive to eat <span class="one_pound">1690</span>
+            calories per day.</h4>
     </div>
-</section>
-<section id="add" class="container-fluid">
-    <div class="row" id="row-1"></div>
-    <div class="row" id="row-2">
-        <div class="col-md-3" id="col1Dashboard"></div>
-        <div class="col-md-6" id="col2Dashboard">
-            <div class="form-wrap">
-                <h1>Welcome <span class="username"></span></h1>
-                <br></br>
-                <div class="input-group">
-                    <h2>Your current weight is <span class="current_weight"></span></h1>
-                </div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <h2>Your goal weight is <span class="goal_weight"></span></h1>
-                    <br></br>
-                    <h2 for="goal_difference">You are <span class="goal_difference"></span>away from your goal!</label>
-            </div>
-        </div>
-    </div>
-    <div class="row" id="row-3"></div>
-</section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</div>
 <script type="text/javascript" src="js/dashboard.js"></script>

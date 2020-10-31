@@ -13,7 +13,6 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -57,31 +56,14 @@ module.exports = function (app) {
   app.post("/api/calorie", function (req, res) {
     //create new data from front end date and save to database
     var foodCalorie = {
-      "foodname": req.body.foodname,
-      "food_calories_uom": req.body.food_calories_uom,
-      "servings_consumed": req.body.servings_consumed,
-      "total_calories": req.body.total_calories
+      foodname: req.body.foodname,
+      food_calories_uom: req.body.food_calories_uom,
+      servings_consumed: req.body.servings_consumed,
+      total_calories: req.body.total_calories,
     };
 
-
-
-    // db.Calorie_counter.create(foodCalorie)
-    //   .then(function (newFoodData) {
-    //     db.Calorie_counter.findAll().then(function (foodData) {
-    //       res.render("Calorie_counter.handlebars", {foodData})
-    //       //res.render("../views/Calorie_counter.handlebars", {tempData: [{foodname: 'asdf'},{foodname: 'lglg'}]})
-    //       //res.render("Calorie_counter.handlebars", tempData)
-    //     })
-    //  }) 
-    
-    
-    db.Calorie_counter.create(foodCalorie)
-        .then(function (newFoodData) {
-          res.json(newFoodData)
-    //      res.render("Calorie_counter.handlebars", newFoodData)
-    //      //res.render("Calorie_counter", newFoodData)
-    //      //console.log(newFoodData);
-        })
-
-  })
+    db.Calorie_counter.create(foodCalorie).then(function (newFoodData) {
+      res.json(newFoodData);
+    });
+  });
 };
