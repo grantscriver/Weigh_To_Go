@@ -1,120 +1,36 @@
-<section id="add" class="container-fluid">
-  <div class="row" id="navbarRow">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand">Weigh to Go</a>
-      <!--Button for responsive design-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!--This is where the Navbar is encoded-->
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link disabled" href="./Calorie_counter">Food Diary<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./dashboard">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Graph">Track Your Progress</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./logout">Logout</a>
-          </li>
-
-        </ul>
-      </div>
-    </nav>
-  </div>
+<div class="container p-3">
   <div class="row">
-    <div class="col-md-4" id="foodDiaryColOne">
-      <div class="form-wrap">
-        <h1> Hello : </h1>
-        <br></br>
-        <h2> Today's Date is: </h2>
+    <div class="col p-2 calorieEntry">
+      <div class=" form-wrap">
+        <h4> Hello <span></span>!</h4>
+        <p> Today's Date is: </p>
         <p class="currentDate">Date</p>
-        <br></br>
-        <h2> Your Calorie Goal for Today is: </h2>
-        <br></br>
+        <p> Your Calorie Goal for Today is: </p>
         </form>
       </div>
-      <div class="form-wrap">
-        {{!-- <form action="/users/register" method="POST">
-          <div id = "my_container" class = "fatsecret_container">
-            <img url="../public/images/nutritionLabel.png" alt="mock up fatsecret nutrition label" style="width:150px">
-<!-- fatsecret API nutrition label 
-            <script>fatsecret.setContainer("my_container");</script>
-            <div id = "search"></div>
-              <script>fatsecret.writeHolder("search")</script>
-            <div id = "food_title"></div>
-              <script>fatsecret.writeHolder("food_title")</script>
-            <div id = "nutrition_panel"></div>
-              <script>fatsecret.writeHolder("nutrition_panel")</script>
-              -->
+      <div class="col-10">
+        <form class="calorie-counter">
+          <div class="form-group">
+            <label for="foodEaten">Food Eaten</label>
+            <input type="text" name="foodEaten" id="foodEaten" class="input-box" style="float:right;" />
           </div>
-          <br></br>
-          <div class="input-group">
+          <div class="form-group">
             <label for="numberOfServings">Number of Servings</label>
-            <input type="number" name="numberOfServings" id="numberOfServings" class="input-box"
-              placeholder="" value={{numberOfServings}}>
+            <input type="number" name="numberOfServings" id="numberOfServings" class="input-box" style="float:right;"
+              placeholder="" />
           </div>
-          <br></br>          
-          <div class="input-group">
-            <label for="numberOfServings">Calories Per Serving</label>
-            <input type="number" name="caloriesPerServing" id="caloriesPerServings" class="input-box"
-              placeholder="" value={{caloriesPerServings}}>
+          <div class="form-group">
+            <label for="caloriesPerServing">Calories Per Serving</label>
+            <input type="number" name="caloriesPerServing" id="caloriesPerServing" class="input-box"
+              style="float:right;" placeholder="" />
           </div>
-          <br></br>
-          <button type="button" class="submit btn btn-danger">Add</button>
-        </form> --}}
+          <button type="submit" class="btn btn-danger" style="float:right;">Add</button>
+        </form>
       </div>
-      <form class="calorie-counter">
-
-        {{!-- <br></br>
-        <div class="input-group">
-          <label for="calorieGoal">Calorie Goal for Today:</label>
-          <input type="number" name="calorieGoal" id="calorieGoal" class="input-box" placeholder="">
-        </div> --}}
-
-        <br></br>
-        <div class="input-group">
-          <label for="foodEaten">Food Eaten</label>
-          <input type="text" name="foodEaten" id="foodEaten" class="input-box" placeholder="">
-        </div>
-        <br></br>
-
-        <div class="input-group">
-          <label for="numberOfServings">Number of Servings</label>
-          <input type="number" name="numberOfServings" id="numberOfServings" class="input-box" placeholder="">
-        </div>
-        <br></br>
-        <div class="input-group">
-          <label for="caloriesPerServing">Calories Per Serving</label>
-          <input type="number" name="caloriesPerServing" id="caloriesPerServing" class="input-box" placeholder="">
-        </div>
-        <br></br>
-        <button type="submit" class="btn btn-default">Add</button>
-
-
-
-
-      </form>
-
-
     </div>
-
-    <div class="col-md-8" id="foodDiaryColTwo">
-
-      {{!-- <ul>
-          {{#each foodData }}
-          {{this.foodname}}
-          {{/each}}
-        </ul> --}}
-
-      <table style="text-align:center;" width="650" height="65" border="10">
+    <div class="col-7 p-2" id="calorieTable">
+      <table>
         <tr>
-          <td></td>
           <thead>
             <th>Foods Eaten</th>
             <th>Servings</th>
@@ -123,28 +39,18 @@
           </thead>
           <tbody>
             {{#each foodData }}
-
             <tr>
-
               <td>{{this.foodname}}</td>
               <td>{{this.food_calories_uom}}</td>
               <td>{{this.servings_consumed}}</td>
               <td>{{this.total_calories}}</td>
             </tr>
-
             {{/each}}
         </tr>
         </tbody>
       </table>
     </div>
-
-
   </div>
-
-</section>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+</div>
 <script type="text/javascript" src="/js/index.js"></script>
-<script src="https://platform.fatsecret.com/js?key=0dc19338c59a4598a086c7da142aca6b&auto_load=true"></script>
 <script type="text/javascript" src="js/calorie.js"></script>
-</body>

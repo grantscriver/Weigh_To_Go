@@ -1,81 +1,29 @@
-form.signup,
-form.login {
-  margin-top: 50px;
-}
-
-.list-group-item {
-  line-height: 2.5;
-}
-
-#myChart {
-  height: 500px;
-  width: 100%;
-  min-height: 150px;
-}
-
-.zc-ref {
-  display: none;
-}
-
-#foodDiaryColTwo {
-  font-family: "Alfa Slab One";
-  background-color: #152659;
-  color: #f2efdc;
-}
-
-#navbarRow {
-  font-family: "Alfa Slab One";
-  background-color: #30bf97;
-  color: #f2efdc;
-}
-
-#foodDiaryColOne {
-  background-color: #f29441;
-  color: #f2efdc;
-  font-family: "Alfa Slab One";
-}
-
-#dashboardNav {
-  font-family: "Alfa Slab One";
-  background-color: #30bf97;
-  color: #f2efdc;
-}
-
-#graphNav {
-  font-family: "Alfa Slab One";
-  background-color: #30bf97;
-  color: #f2efdc;
-}
-
-#row-1 {
-  max-height: 100%;
-  background-color: #f29441;
-}
-
-#row-2 {
-  max-height: 100%;
-}
-
-#row-3 {
-  max-height: 100%;
-  background-color: #f29441;
-}
-
-#add {
-  background-color: #f29441;
-}
-
-#spanLogin {
-  height: 33%;
-}
-
 html body {
-  background-color: #f29441;
+  background-color: #f2efdc;
+  font-family: "Nunito", sans-serif;
 }
 
-img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
+nav {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  background-color: #dd4125;
+  color: #f2efdc;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 2px solid #202b26;
+  text-align: center;
+  width: 650px;
+}
+
+#calorieTable {
+  background-color: #62bc98;
+  color: #202b26;
+}
+
+.calorieEntry {
+  background-color: #f7a642;
 }
