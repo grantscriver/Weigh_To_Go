@@ -53,8 +53,15 @@ module.exports = function (app) {
     }
   });
 
+  // When the user clicks "clear table", this function clears the database by using truncate SQL function
+  app.get("/api/clear_calorie", function (req, res) {
+db.Calorie_counter.truncate()
+
+  })
+
+
   app.post("/api/calorie", function (req, res) {
-    //create new data from front end date and save to database
+    //create new data from front end and save to database
     var foodCalorie = {
       foodname: req.body.foodname,
       food_calories_uom: req.body.food_calories_uom,

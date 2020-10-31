@@ -9,7 +9,6 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("login.handlebars", { layout: "landing" });
   });
-
   app.get("/signup", function (req, res) {
     res.render("signup.handlebars", { layout: "landing" });
   });
