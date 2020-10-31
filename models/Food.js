@@ -27,15 +27,15 @@ module.exports = function (sequelize, DataTypes) {
           allowNull: false
       },
       food_calories_uom: {
-          type: DataTypes.STRING,
+          type: DataTypes.NUMERIC,
           allowNull: true
       },
       servings_consumed: {
-          type: DataTypes.STRING,
+          type: DataTypes.NUMERIC,
           allowNull: true
       },
       total_calories: {
-          type: DataTypes.STRING,
+          type: DataTypes.NUMERIC,
           allowNull: true
       },
   });

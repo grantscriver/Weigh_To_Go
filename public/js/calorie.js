@@ -1,5 +1,6 @@
 
 
+
 $(document).ready(function () {
   // Getting references to our form and input
   //var signUpForm = $("form.signup");
@@ -8,7 +9,7 @@ $(document).ready(function () {
   var numberOfservings = $("input#numberOfservings");
   var caloriesPerServing = $("input#caloriesPerServing");
 
-  // When the add button is clicked, we validate the email and password are not blank
+  // setting up the calorie counter variables when the user submits calorie data
   $(".calorie-counter").on("submit", function (event) {
     event.preventDefault();
     var calorieData = {
@@ -17,11 +18,20 @@ $(document).ready(function () {
       food_calories_uom: $("#caloriesPerServing").val().trim(),
       total_calories: $("#numberOfServings").val().trim() * $("#caloriesPerServing").val().trim()
     };
-    // If we have an email and password, run the signUpUser function
+    // call a function that will run a post for the calorie data
     addCalorieData(calorieData.foodname, calorieData.servings_consumed, calorieData.food_calories_uom, calorieData.total_calories);
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
+  $(".clear-calorie").on("submit", function (event) {
+    event.preventDefault();
+
+    $.get("/api/clear_calorie")
+
+    location.reload();
+
+  });
+
+  // Does a post to the calorie route
   // Otherwise we log any errors
   function addCalorieData(foodname, servings_consumed, food_calories_uom, total_calories) {
 

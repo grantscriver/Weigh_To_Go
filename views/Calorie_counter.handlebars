@@ -14,7 +14,7 @@
             <a class="nav-link disabled" href="./Calorie_counter">Food Diary<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./dashboard">Dashboard</a>
+            <a class="nav-link" href="./members">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./Graph">Track Your Progress</a>
@@ -30,13 +30,12 @@
   <div class="row">
     <div class="col-md-4" id="foodDiaryColOne">
       <div class="form-wrap">
-        <h1> Hello : </h1>
+        <h1> Hello <span class="user.email"></span></h1>
         <br></br>
         <h2> Today's Date is: </h2>
-        <p class="currentDate">Date</p>
+        <p class="currentDate"><script> document.write(new Date().toLocaleDateString()); </script></p>
         <br></br>
-        <h2> Your Calorie Goal for Today is: </h2>
-        <br></br>
+        
         </form>
       </div>
       <div class="form-wrap">
@@ -71,7 +70,7 @@
       </div>
       <form class="calorie-counter">
 
-        {{!-- <br></br>
+         {{!-- <br></br>
         <div class="input-group">
           <label for="calorieGoal">Calorie Goal for Today:</label>
           <input type="number" name="calorieGoal" id="calorieGoal" class="input-box" placeholder="">
@@ -96,17 +95,18 @@
         <br></br>
         <button type="submit" class="btn btn-default">Add</button>
 
-
+    
 
 
       </form>
-
-
+      <form class="clear-calorie">
+<button type="submit" class="btn btn-default">Clear Table</button>
+</form>
     </div>
 
     <div class="col-md-8" id="foodDiaryColTwo">
-
-      {{!-- <ul>
+  
+  {{!-- <ul>
           {{#each foodData }}
           {{this.foodname}}
           {{/each}}
@@ -115,26 +115,28 @@
       <table style="text-align:center;" width="650" height="65" border="10">
         <tr>
           <td></td>
-          <thead>
-            <th>Foods Eaten</th>
-            <th>Servings</th>
-            <th>Calories per serving</th>
-            <th>Total Calories</th>
-          </thead>
-          <tbody>
-            {{#each foodData }}
+<thead>
+          <th>Foods Eaten</th>
+          <th>Servings</th>
+          <th>Calories per serving</th>
+          <th>Total Calories</th>
+          <th>Daily Total Calories</th>
+</thead>
+<tbody>
+          {{#each foodData }}
 
-            <tr>
+<tr>
+          
+          <td>{{this.foodname}}</td>
+          <td>{{this.food_calories_uom}}</td>
+          <td>{{this.servings_consumed}}</td>
+          <td>{{this.total_calories}}</td>
+          <td>{{this.daily_total_calories}}</td>
+</tr>
 
-              <td>{{this.foodname}}</td>
-              <td>{{this.food_calories_uom}}</td>
-              <td>{{this.servings_consumed}}</td>
-              <td>{{this.total_calories}}</td>
-            </tr>
-
-            {{/each}}
+          {{/each}}
         </tr>
-        </tbody>
+</tbody>
       </table>
     </div>
 
@@ -147,4 +149,5 @@
 <script type="text/javascript" src="/js/index.js"></script>
 <script src="https://platform.fatsecret.com/js?key=0dc19338c59a4598a086c7da142aca6b&auto_load=true"></script>
 <script type="text/javascript" src="js/calorie.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
 </body>
