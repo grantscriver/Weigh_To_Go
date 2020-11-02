@@ -1,17 +1,30 @@
-# Project2
-
-[Project 2 Document](https://docs.google.com/document/d/1a9gSqqaABbkmH85_ea5b3Ncp5ZtoZ9rhjN2QeX7wYPg/edit?usp=sharing)
-
-[Project 2 Presentation](https://docs.google.com/presentation/d/1rx20oaBUVH6SNjZqYiwGvxqsA7jLg7UGA5UHt9OApY8/edit?usp=sharing)
+# Weigh to Go!
+https://floating-stream-70238.herokuapp.com/
 
 ## Demonstration
-![Readme Image](https://github.com/reganmurray22/Project2/blob/main/public/images/introImage.jpg)
+![Readme Image](https://github.com/reganmurray22/Project2/blob/main/public/images/calories.gif)
 
 ## Description
+Weigh to Go is a food tracker and weight loss calculator to help people achieve their goal weight in a healthy and effective manner. They can enter their daily caolorie intake and update their weight in their profile as they go along their weight loss journey. 
 
 ## Installation
+Step 1 - Make sure you have a code editor, MySQL, Node.js and Node Package Manager installed
+
+Step 2 - Clone my repository
+
+Step 3 - Update the config.json with your username and password for mySQL
+
+Step 5 - Run the node command `npm install` to install all the modules required
+
+Step 6 - Run the node command `npm run devStart`
+
+Step 7 - Start the application on your local server
+Type `localhost:3000` in your internet browser. 
+
+Step 8 - Enjoy!
 
 ## Credits
+We used Passport.js to run our authentication.
 
 ## Contributing
 ### Team 6 - Narcissus
@@ -19,10 +32,4 @@
 *Grant Scriver*<br>
 *Regan Murray*<br>
 *James Jorissen*<br>
-*Caroline Pukenis*<br>
-
-## Tests
-
-## Licence
-
-## Questions
+*Caroline Pukenis*
