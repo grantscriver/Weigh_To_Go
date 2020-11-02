@@ -61,26 +61,7 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text("Cannot create account!");
     $("#alert").fadeIn(500);
   }
-}); password: password,
-    username: username,
-    // gender: gender,
-    age: age,
-    current_height: current_height,
-    current_weight: current_weight,
-    goal_weight: goal_weight,
-  })
-    .then(function (data) {
-      window.location.replace("/dashboard");
-      // If there's an error, handle it by throwing up a bootstrap alert
-    })
-    .catch(handleLoginErr);
-}
-
-function handleLoginErr(err) {
-  $("#alert .msg").text(err.responseJSON);
-  $("#alert").fadeIn(500);
-}
-
+});
