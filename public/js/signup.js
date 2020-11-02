@@ -61,7 +61,7 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text("Cannot create account!");
+    $("#alert .msg").text("Cannot create account!"]);
     $("#alert").fadeIn(500);
   }
 });
