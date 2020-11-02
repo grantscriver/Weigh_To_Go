@@ -14,10 +14,12 @@ $(document).ready(function() {
         
         var calories_per_day = Math.floor(((655 + (4.3 * data.current_weight) + (4.7 * data.current_height) - (4.7 * data.age))*1.55) - 1000)
         displayCalories(calories_per_day);
+        console.log(calories_per_day);
       } else if (data.gender === "male") {
   //If Male: 66 + (6.3 x lbs) + (12.9 x inches) - (6.8 x yrs) = Total calories to maintain - 1000 to lose two pounds
         var calories_per_day = Math.floor(((66 + (6.3 * data.current_weight) + (12.9 * data.current_height) - (6.8 * data.age))*1.55) - 1000)
         displayCalories(calories_per_day);
+        console.log(calories_per_day);
       } /*else {
         return (err);
       }*/
@@ -27,13 +29,12 @@ $(document).ready(function() {
 
   //Function to display caloric intake based on gender
     function displayCalories () {
-      $(".calories_per_day").text(calories_per_day);
+      $(".calories_per_day").html(calories_per_day);
     }
     
   });
 
 });
-
 
 
 

@@ -1,6 +1,7 @@
 $(document).ready(function() {
     //Updated weight input from user
-    var id 
+    var id;
+    var gosl_weight;
     var updatedWeightForm = $("form.update");
     var updated_weightInput = $("input#updated_weight-input");
     // GET request to figure out which user is logged in and updates the HTML on the page
@@ -11,9 +12,10 @@ $(document).ready(function() {
       $(".current_weight").text(data.current_weight);
       $(".goal_weight").text(data.goal_weight);
       id = data.id;
+      goal_weight = data.goal_weight;
 
     //Mathematical equation "current_weight - goal_weight" = lbs to goal
-      $(".goal_difference").text(data.current_weight - data.goal_weight);
+      $(".updated_difference").text(data.current_weight - data.goal_weight);
     });
 
     //When the user inputs an updated weight and presses submit  
@@ -39,22 +41,14 @@ $(document).ready(function() {
                 data: { id: id, current_weight: updated_weight },
             })
             .then(function() {
-    //Run another get to refresh the page with an updated current weight and difference to goal
-                $.get("/api/user_data").then(function(data) {
-                    console.log(data);
     //Refresh username, current_weight (replaced by updated_weight), goal_weight
-                    $(".username").text(data.username);
-                    $(".current_weight").text(data.current_weight);
-                    $(".goal_weight").text(data.goal_weight);
-  
-    //Mathematical equation "current_weight - goal_weight" = lbs to goal
-                    $(".goal_difference").text(data.current_weight - data.goal_weight);
+                $(".current_weight").text(updated_weight);
+    //Mathematical equation "updated_weight - goal_weight" = lbs to goal
+                $(".updated_difference").text(updated_weight - goal_weight);
                 });
 
-            })
-        }
-    });
-  
+            }
+        });
 });
   
   
