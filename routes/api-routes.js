@@ -9,6 +9,7 @@ module.exports = function (app) {
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
@@ -30,11 +31,13 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
+
   // Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function (req, res) {
     if (!req.user) {
@@ -43,6 +46,7 @@ module.exports = function (app) {
     } else {
       // Otherwise send back the user username
       res.json({
+        id: req.user.id,
         username: req.user.username,
         gender: req.user.gender,
         age: req.user.age,
@@ -73,4 +77,21 @@ db.Calorie_counter.truncate()
       res.json(newFoodData);
     });
   });
+
+  //Route to update the user's weight
+  app.patch("/api/update", function(req, res) {
+    const user = req.body;
+    console.log(user);
+
+    db.User.update(
+      {current_weight: parseInt(req.body.current_weight)},
+      {where: {id: parseInt(req.body.id)}},
+    ).then(function(resp) {
+      console.log(resp);
+      res.json(resp);
+    }).catch(function(err){
+      console.log (err);
+    }); 
+  });
+
 };
