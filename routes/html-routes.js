@@ -2,7 +2,7 @@
 var path = require("path");
 var db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAuthenticated = require("../middleware/isAuthenticated");
 
 module.exports = function (app) {
   // load login page
@@ -11,9 +11,9 @@ module.exports = function (app) {
   });
 
   //login
-    app.get("/login", function(req, res) {
-      res.render("login.handlebars", { layout: "landing" })
-    });
+  app.get("/login", function (req, res) {
+    res.render("login.handlebars", { layout: "landing" });
+  });
   app.get("/signup", function (req, res) {
     res.render("signup.handlebars", { layout: "landing" });
   });
