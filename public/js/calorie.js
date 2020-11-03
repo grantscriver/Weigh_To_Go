@@ -5,6 +5,8 @@ $(document).ready(function () {
   var numberOfservings = $("input#numberOfservings");
   var caloriesPerServing = $("input#caloriesPerServing");
 
+  $(".currentDate").text(moment().format("l"));
+
   // setting up the calorie counter variables when the user submits calorie data
   $(".calorie-counter").on("submit", function (event) {
     event.preventDefault();
@@ -28,10 +30,9 @@ $(document).ready(function () {
   $(".clear-calorie").on("submit", function (event) {
     event.preventDefault();
 
-    $.get("/api/clear_calorie")
+    $.get("/api/clear_calorie");
 
     location.reload();
-
   });
 
   // Does a post to the calorie route
