@@ -1,5 +1,5 @@
 # Weigh to Go!
-https://floating-stream-70238.herokuapp.com/
+https://floating-plains-73189.herokuapp.com/
 
 ## Demonstration
 ![Readme Image](https://github.com/reganmurray22/Project2/blob/main/public/images/calories.gif)
