@@ -1,11 +1,11 @@
 # Weigh to Go!
-https://floating-plains-73189.herokuapp.com/
+https://floating-stream-70238.herokuapp.com/
 
 ## Demonstration
-![Readme Image](https://github.com/reganmurray22/Project2/blob/main/public/images/calories.gif)
+![Readme Image](./public/images/WeighToGo.jpg)
 
 ## Description
-Weigh to Go is a food tracker and weight loss calculator to help people achieve their goal weight in a healthy and effective manner. They can enter their daily caolorie intake and update their weight in their profile as they go along their weight loss journey. 
+Weigh to Go is a food tracker and weight loss calculator to help people achieve their goal weight in a healthy and effective manner. They can enter their daily calorie intake and update their weight in their profile as they go along their weight loss journey. 
 
 ## Installation
 Step 1 - Make sure you have a code editor, MySQL, Node.js and Node Package Manager installed
